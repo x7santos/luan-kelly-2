@@ -20,7 +20,6 @@
     text-align: center;
     max-width: 500px;
     padding: 20px;
-    position: relative;
   }
   h1 {
     font-size: 2.5em;
@@ -39,37 +38,12 @@
     font-size: 1.1em;
     line-height: 1.5;
   }
-  .carousel {
-    position: relative;
-    margin-top: 20px;
-  }
   .foto {
+    margin-top: 20px;
     border-radius: 15px;
     max-width: 100%;
     height: auto;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  }
-  .seta {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
-    background: rgba(0,0,0,0.3);
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(0,0,0,0.5);
-  }
-  .seta:hover {
-    background: rgba(0,0,0,0.5);
-  }
-  .esquerda {
-    left: -50px;
-  }
-  .direita {
-    right: -50px;
   }
   #playBtn {
     margin-top: 20px;
@@ -94,13 +68,7 @@
   <div class="mensagem">
     Amor, hoje completamos mais um aniversário de noivado e, a cada ano que passa, só aumenta a certeza de que quero viver o resto da vida contigo. Eu te amo!
   </div>
-  
-  <!-- Carrossel de imagens -->
-  <div class="carousel">
-    <button class="seta esquerda" onclick="mudarFoto(-1)">&#10094;</button>
-    <img id="foto" src="foto.jpg" alt="Foto do casal" class="foto">
-    <button class="seta direita" onclick="mudarFoto(1)">&#10095;</button>
-  </div>
+  <img src="foto.jpg" alt="Foto do casal" class="foto">
 
   <!-- Botão para tocar música -->
   <button id="playBtn">💖 Tocar música</button>
@@ -112,16 +80,6 @@
 </div>
 
 <script>
-const fotos = ["foto1.jpg", "foto2.jpg", "foto3.jpg"]; // adicione aqui os nomes dos arquivos
-let indiceAtual = 0;
-
-function mudarFoto(direcao) {
-  indiceAtual += direcao;
-  if (indiceAtual < 0) indiceAtual = fotos.length - 1;
-  if (indiceAtual >= fotos.length) indiceAtual = 0;
-  document.getElementById("foto").src = fotos[indiceAtual];
-}
-
 function atualizarContador() {
   const inicio = new Date("2023-12-30T23:00:00");
   const agora = new Date();
@@ -133,7 +91,7 @@ function atualizarContador() {
   const segundos = Math.floor((diff / 1000) % 60);
 
   document.getElementById("contador").innerText = 
-    `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos ❤️`;
+    ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos ❤️;
 }
 setInterval(atualizarContador, 1000);
 atualizarContador();
